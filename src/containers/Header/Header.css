@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: cadetblue;
+}
+
+nav {
+  align-self: center;
+}
+
+nav button {
+  padding: 0.7rem 1.5rem;
+  margin: 20px;
+}
+
+.header-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  width: 5rem;
+}
