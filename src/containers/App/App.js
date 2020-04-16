@@ -19,6 +19,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+
+    //ADD LOAD FAVORITES FUNCTION
+
     fetch('https://api.coinlore.net/api/global/')
     .then(response => response.json())
     .then(marketInfo => this.setState({marketInfo}))
