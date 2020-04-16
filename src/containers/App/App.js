@@ -8,6 +8,7 @@ import Exchanges from '../Exchanges/Exchanges';
 import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
 import Header from '../Header/Header';
 import WelcomeCard from '../WelcomeCard/WelcomeCard';
+import { getMarketInfo } from '../../apiCalls';
 
 
 class App extends Component {
@@ -21,9 +22,7 @@ class App extends Component {
   componentDidMount = () => {
 
     //ADD LOAD FAVORITES FUNCTION
-
-    fetch('https://api.coinlore.net/api/global/')
-    .then(response => response.json())
+    getMarketInfo()
     .then(marketInfo => this.setState({marketInfo}))
   }
 
