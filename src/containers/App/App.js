@@ -23,16 +23,16 @@ class App extends Component {
 
     //ADD LOAD FAVORITES FUNCTION
     getMarketInfo()
-    .then(marketInfo => this.setState({marketInfo}))
+    .then(marketInfo => this.setState({marketInfo: marketInfo[0]}))
   }
 
   render() {
     return (
       <>
-        <Header />
         <main className="App">
+        <Header />
           <Route exact path='/'>
-            <WelcomeCard />
+            <WelcomeCard marketInfo={this.state.marketInfo}/>
           </Route>
           <Route exact path='/cryptos'>
             <Cryptos />
