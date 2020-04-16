@@ -1,0 +1,14 @@
+.welcome-card {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  background-color: coral;
+}
+
+.welcome-button {
+  width: 15%;
+  align-self: center;
+  margin: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
