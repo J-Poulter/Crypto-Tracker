@@ -1,6 +1,6 @@
 export const cryptos = (state = {}, action) => {
   switch (action.type) {
-    case 'LOAD_CRYPTOS':
+    case 'GET_CRYPTOS':
       return {}
     case 'SELECT_CRYPTO':
       return {}
