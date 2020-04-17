@@ -9,21 +9,16 @@ import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContaine
 import Header from '../Header/Header';
 import WelcomeCard from '../WelcomeCard/WelcomeCard';
 import { getMarketInfo } from '../../apiCalls';
+import { loadMarketInfo } from '../../actions';
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      marketInfo: {}
-    }
-  }
 
   componentDidMount = () => {
 
     //ADD LOAD FAVORITES FUNCTION
     getMarketInfo()
-    .then(marketInfo => this.setState({marketInfo: marketInfo[0]}))
+    .then(marketInfo => this.props.loadMarketInfo({marketInfo: marketInfo[0]}))
   }
 
   render() {
@@ -32,7 +27,7 @@ class App extends Component {
         <main className="App">
         <Header />
           <Route exact path='/'>
-            <WelcomeCard marketInfo={this.state.marketInfo}/>
+            <WelcomeCard />
           </Route>
           <Route exact path='/cryptos'>
             <Cryptos />
@@ -50,4 +45,8 @@ class App extends Component {
   };
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  loadMarketInfo: marketInfo => dispatch( loadMarketInfo(marketInfo) )
+})
+
+export default connect(null, mapDispatchToProps)(App);

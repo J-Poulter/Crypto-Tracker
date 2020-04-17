@@ -13,7 +13,9 @@ const Header = () => {
       <nav>
         <button>Top 100</button>
         <button>Favorites</button>
-        <button>Home</button>
+        <Link to='./'>
+          <button>Home</button>
+        </Link>
       </nav>
     </header>
   )
