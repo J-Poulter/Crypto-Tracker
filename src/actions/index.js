@@ -1,34 +1,34 @@
-export const loadMarketInfo = () => ({
+export const loadMarketInfo = (marketInfo) => ({
   type: 'LOAD_MARKET_INFO',
   marketInfo
 })
 
-export const loadTopCryptos = (page) => ({
+export const loadTopCryptos = (cryptos) => ({
   type: 'GET_CRYPTOS',
-  topCryptos
+  cryptos
 })
 
-export const loadExchanges = () => ({
+export const loadExchanges = (exchanges) => ({
   type: 'GET_EXCHANGES',
   exchanges
 })
 
-export const loadCoinDetails = () => ({
+export const loadCoinDetails = (coinInfo) => ({
   type: 'GET_COIN_DETAILS',
   coinInfo
 })
 
-export const selectCrypto = () => ({
+export const selectCrypto = (selectedCrypto) => ({
   type: 'SELECT_CRYPTO',
   selectedCrypto
 })
 
-export const addFavorite = () => ({
+export const addFavorite = (crypto) => ({
   type: 'ADD_FAVORITE',
   crypto
 })
 
-export const removeFavorite = () => ({
+export const removeFavorite = (crypto) => ({
   type: 'REMOVE_FAVORITE',
   crypto
 })

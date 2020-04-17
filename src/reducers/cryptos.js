@@ -1,7 +1,7 @@
-export const cryptos = (state = {}, action) => {
+export const cryptos = (state = [], action) => {
   switch (action.type) {
     case 'GET_CRYPTOS':
-      return {}
+      return [...action.cryptos]
     case 'SELECT_CRYPTO':
       return {}
     case 'GET_COIN_DETAILS':
