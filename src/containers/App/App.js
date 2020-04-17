@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import Cryptos from '../Cryptos/Cryptos';
+import DetailedCrypto from '../DetailedCrypto/DetailedCrypto';
+import Exchanges from '../Exchanges/Exchanges';
+import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContainer';
+import Header from '../Header/Header';
+import WelcomeCard from '../WelcomeCard/WelcomeCard';
+import { getMarketInfo } from '../../apiCalls';
+import { loadMarketInfo } from '../../actions';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  componentDidMount = () => {
+
+    //ADD LOAD FAVORITES FUNCTION
+    getMarketInfo()
+    .then(marketInfo => this.props.loadMarketInfo({marketInfo: marketInfo[0]}))
+  }
+
+  render() {
+    return (
+      <>
+        <main className="App">
+        <Header />
+          <Route exact path='/'>
+            <WelcomeCard />
+          </Route>
+          <Route exact path='/cryptos'>
+            <Cryptos />
+          </Route>
+          <Route path='/cryptos/:id' render={(match) => <DetailedCrypto matchId={parseInt(match.match.params.id)} />} />
+          <Route exact path='/exchanges'>
+            <Exchanges />
+          </Route>
+          <Route exact path='/favorites'>
+            <FavoriteCardContainer />
+          </Route>
+        </main>
+      </>
+    )
+  };
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  loadMarketInfo: marketInfo => dispatch( loadMarketInfo(marketInfo) )
+})
+
+export default connect(null, mapDispatchToProps)(App);

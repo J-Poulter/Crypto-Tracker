@@ -1,0 +1,15 @@
+tr {
+  border-bottom: 1px solid gray;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.rank-data {
+  color: black;
+}
