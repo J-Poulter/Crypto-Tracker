@@ -12,7 +12,24 @@ const Cryptos = ({cryptos}) => {
   })
 
   return (
-    <div>
+    <div className='cryptos-display'>
+      <div className='cryptos-heading'>
+        <h1 className='cryptos-title'>BINANCE TOP CRYPTOS</h1>
+        <form>
+            <label for='filter'>Filter By: </label>
+            <select name='filter'>
+            <option value='$:H-L'>Price: High to Low</option>
+            <option value='$:L-H'>Price: Low to High</option>
+            <option value='1H:H-L'>1h%: High to Low</option>
+            <option value='1H:L-H'>1h%: Low to High</option>
+            <option value='24H:H-L'>24h%: High to Low</option>
+            <option value='24H:L-H'>24h%: Low to High</option>
+            <option value='7D:H-L'>7d%: High to Low</option>
+            <option value='7D:L-H'>7d%: Low to High</option>
+          </select>
+          <button type='submit'>Go!</button>
+        </form>
+      </div>
       <table>
         <thead>
           <tr>
