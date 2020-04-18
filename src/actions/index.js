@@ -18,6 +18,11 @@ export const selectCrypto = (selectedCrypto) => ({
   selectedCrypto
 })
 
+export const getSocials = (socials) => ({
+  type: 'GET_SOCIALS',
+  socials
+})
+
 export const addFavorite = (crypto) => ({
   type: 'ADD_FAVORITE',
   crypto
