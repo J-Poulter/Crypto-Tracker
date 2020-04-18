@@ -8,7 +8,7 @@ import ExchangeRow from '../../components/ExchangeRow/ExchangeRow';
 const Exchanges = ({exchanges, cryptoName, loadExchanges}) => {
   let allExchanges = exchanges.map(exchange => {
     return (
-      <ExchangeRow key={exchange.id} exchange={exchange} />
+      <ExchangeRow key={exchanges.indexOf(exchange)} exchange={exchange} />
     )
   })
 
