@@ -32,7 +32,9 @@ class App extends Component {
           <Route exact path='/cryptos'>
             <Cryptos />
           </Route>
-          <Route path='/cryptos/:id' render={(match) => <DetailedCrypto matchId={parseInt(match.match.params.id)} />} />
+          <Route exact path='/selected'>
+            <DetailedCrypto />
+          </Route>
           <Route exact path='/exchanges'>
             <Exchanges />
           </Route>
