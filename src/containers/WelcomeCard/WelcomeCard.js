@@ -30,7 +30,7 @@ const WelcomeCard = ({marketInfo = {}, loadTopCryptos}) => {
 }
 
 const mapStateToProps = (state) => ({
-  marketInfo: state.exchanges
+  marketInfo: state.market
 })
 
 const mapDispatchToProps = (dispatch) => ({

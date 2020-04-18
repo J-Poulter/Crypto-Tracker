@@ -4,20 +4,23 @@ import { connect } from 'react-redux';
 import CryptoRow from '../../components/CryptoRow/CryptoRow';
 
 const Cryptos = ({cryptos}) => {
-  console.log(cryptos)
   const allCryptos = cryptos.map(crypto => {
-    return(
+    return (
       <CryptoRow key={crypto.id} crypto={crypto} />
     )
   })
+
+  const handleSubmit = () => {
+    
+  }
 
   return (
     <div className='cryptos-display'>
       <div className='cryptos-heading'>
         <h1 className='cryptos-title'>BINANCE TOP CRYPTOS</h1>
         <form>
-            <label for='filter'>Filter By: </label>
-            <select name='filter'>
+          <label htmlFor='filter'>Sort By: </label>
+          <select name='filter'>
             <option value='$:H-L'>Price: High to Low</option>
             <option value='$:L-H'>Price: Low to High</option>
             <option value='1H:H-L'>1h%: High to Low</option>
