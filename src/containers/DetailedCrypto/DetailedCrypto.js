@@ -12,19 +12,23 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
     getExchanges(id)
     .then(data => loadExchanges(data))
   }
+
+  const formatNumber = (number) => {
+    return parseInt(number).toLocaleString()
+  }
   
   return (
     <section className='selected-card'>
       <h2>{name}</h2>    
       <p>{symbol}</p>    
-      <p>{rank}</p>    
-      <p>{price_usd}</p>    
-      <p>{percent_change_1h}</p>
-      <p>{percent_change_24h}</p>
-      <p>{percent_change_7d}</p>
-      <p>{market_cap_usd}</p>
-      <p>{tsupply}</p>
-      <p>{msupply}</p>
+      <p>Rank: {rank}</p>    
+      <p>${price_usd}</p>    
+      <p>Movement (1h): {percent_change_1h}%</p>
+      <p>Movement (24h): {percent_change_24h}%</p>
+      <p>Movement (7d): {percent_change_7d}%</p>
+      <p>Market Cap (thousands): ${formatNumber(market_cap_usd / 1000)}</p>
+      <p>Current Supply: {formatNumber(tsupply)}</p>
+      <p>Eventual Maximum Supply: {formatNumber(msupply)}</p>
       <h3>Social Stats:</h3>
       <Link to='/exchanges'>
         <button onClick={() => loadTopExchanges(id)} className='selected-button'>Compare Exchanges</button>
