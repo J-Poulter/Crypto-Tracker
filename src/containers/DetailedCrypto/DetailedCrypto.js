@@ -6,7 +6,7 @@ import { getExchanges } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 
 const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
-  const { id, name, symbol, rank, price_usd, percent_change_1h, percent_change_24h, percent_change_7d, market_cap_usd, tsupply, msupply } = crypto
+  const { id, name, symbol, rank, price_usd, percent_change_1h, percent_change_24h, percent_change_7d, market_cap_usd, tsupply, msupply, reddit = {}, twitter = {} } = crypto
 
   const loadTopExchanges = (id) => {
     getExchanges(id)
@@ -14,7 +14,11 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
   }
 
   const formatNumber = (number) => {
-    return parseInt(number).toLocaleString()
+    if (number) {
+      return parseInt(number).toLocaleString()
+    } else {
+      return 'Not Available'
+    }
   }
   
   return (
@@ -30,6 +34,10 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
       <p>Current Supply: {formatNumber(tsupply)}</p>
       <p>Eventual Maximum Supply: {formatNumber(msupply)}</p>
       <h3>Social Stats:</h3>
+      <p>Sub-Reddit Subscribers: {formatNumber(reddit.subscribers)}</p>
+      <p>Sub-Reddit Average Active Users: {formatNumber(reddit.avg_active_users)}</p>
+      <p>Twitter Followers: {formatNumber(twitter.followers_count)}</p>
+      <p>Twitter Statuses Count: {formatNumber(twitter.status_count)}</p>
       <Link to='/exchanges'>
         <button onClick={() => loadTopExchanges(id)} className='selected-button'>Compare Exchanges</button>
       </Link>
