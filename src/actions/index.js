@@ -13,11 +13,6 @@ export const loadExchanges = (exchanges) => ({
   exchanges
 })
 
-export const loadCoinDetails = (coinInfo) => ({
-  type: 'GET_COIN_DETAILS',
-  coinInfo
-})
-
 export const selectCrypto = (selectedCrypto) => ({
   type: 'SELECT_CRYPTO',
   selectedCrypto
