@@ -1,8 +1,10 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { favorites } from '../../reducers/favorites';
 
-const Header = () => {
+const Header = ({favorites}) => {
   return (
     <header>
       <div className='header-title'>
@@ -14,7 +16,7 @@ const Header = () => {
           <button>Top 100</button>
         </Link>
         <Link to='./favorites'>
-          <button>Favorites</button>
+          <button>Favorites({favorites.length})</button>
         </Link>
         <Link to='./'>
           <button>Home</button>
@@ -24,4 +26,8 @@ const Header = () => {
   )
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  favorites: state.favorites
+})
+
+export default connect(mapStateToProps)(Header);
