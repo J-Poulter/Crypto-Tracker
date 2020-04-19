@@ -21,7 +21,14 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
     }
   }
 
-
+  const handleFavoriteClick = (id) => {
+    console.log(isFavoriteCheck(id))
+    if (isFavoriteCheck(id)) {
+      toggleFavorite(favorites.filter(favorite => favorite.id !== id))
+    } else {
+      toggleFavorite([...favorites, crypto])
+    }
+  }
 
   const isFavoriteCheck = (id) => {
     return favorites.some(favorite => favorite.id === id)
