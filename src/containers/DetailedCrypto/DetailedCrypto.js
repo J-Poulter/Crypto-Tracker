@@ -10,7 +10,7 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
 
   const loadTopExchanges = (id) => {
     getExchanges(id)
-    .then(data => loadExchanges(data))
+      .then(data => loadExchanges(data))
   }
 
   const formatNumber = (number) => {
@@ -22,11 +22,14 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
   }
 
   const handleFavoriteClick = (id) => {
-    console.log(isFavoriteCheck(id))
     if (isFavoriteCheck(id)) {
-      toggleFavorite(favorites.filter(favorite => favorite.id !== id))
+      const filteredFavorites = favorites.filter(favorite => favorite.id !== id)
+      toggleFavorite(filteredFavorites)
+      localStorage.setItem('favorites', JSON.stringify(filteredFavorites))
     } else {
-      toggleFavorite([...favorites, crypto])
+      const accumulatdFavorites = [...favorites, crypto]
+      toggleFavorite(accumulatdFavorites)
+      localStorage.setItem('favorites', JSON.stringify(accumulatdFavorites))
     }
   }
 
