@@ -1,7 +1,7 @@
 export const favorites = (state = [], action) => {
   switch (action.type) {
     case 'TOGGLE_FAVORITE':
-      return [...action.faves]
+      return [...action.favorites]
     default:
       return state
   }
