@@ -1,12 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './FavoriteCardContainer.css';
+import FavoriteCard from '../../components/FavoriteCard/FavoriteCard'
 
-const FavoriteCardContainer = () => {
+const FavoriteCardContainer = ({favorites}) => {
+  const allFavorites = favorites.map(favorite => {
+    return(
+      <FavoriteCard favorite={favorite} />
+    )
+  })
+
   return (
-    <div>
-      
-    </div>
+    <>
+      <h1>Your Favorite Cryptos:</h1>
+      <section className='favorites-container'>
+        {allFavorites}
+      </section>
+    </>
   )
 }
 
-export default FavoriteCardContainer;
+const mapStateToProps = (state) => ({
+  favorites: state.favorites
+})
+
+export default connect(mapStateToProps)(FavoriteCardContainer);

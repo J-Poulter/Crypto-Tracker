@@ -23,13 +23,8 @@ export const getSocials = (socials) => ({
   socials
 })
 
-export const addFavorite = (crypto) => ({
-  type: 'ADD_FAVORITE',
-  crypto
-})
-
-export const removeFavorite = (crypto) => ({
-  type: 'REMOVE_FAVORITE',
-  crypto
+export const toggleFavorite = (favorites) => ({
+  type: 'TOGGLE_FAVORITE',
+  favorites
 })
 

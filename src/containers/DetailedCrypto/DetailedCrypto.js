@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './DetailedCrypto.css';
-import { loadExchanges } from '../../actions';
+import { loadExchanges, toggleFavorite } from '../../actions';
 import { getExchanges } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 
-const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
+const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites}) => {
   const { id, name, symbol, rank, price_usd, price_btc = 0, percent_change_1h, percent_change_24h, percent_change_7d, market_cap_usd, tsupply, msupply, reddit = {}, twitter = {} } = crypto
 
   const loadTopExchanges = (id) => {
     getExchanges(id)
-    .then(data => loadExchanges(data))
+      .then(data => loadExchanges(data))
   }
 
   const formatNumber = (number) => {
@@ -21,10 +21,29 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
     }
   }
   
+  const isFavoriteCheck = (id) => {
+    return favorites.some(favorite => favorite.id === id)
+  }
+
+  const handleFavoriteClick = (id) => {
+    if (isFavoriteCheck(id)) {
+      const filteredFavorites = favorites.filter(favorite => favorite.id !== id)
+      toggleFavorite(filteredFavorites)
+      localStorage.setItem('favorites', JSON.stringify(filteredFavorites))
+    } else {
+      const accumulatdFavorites = [...favorites, crypto]
+      toggleFavorite(accumulatdFavorites)
+      localStorage.setItem('favorites', JSON.stringify(accumulatdFavorites))
+    }
+  }
+
   return (
     <section className='selected-card'>
       <h2>{name}</h2>    
       <p>{symbol}</p>    
+      <button onClick={() => handleFavoriteClick(id)} type='button'>
+        {isFavoriteCheck(id) ? 'Remove From Favorites' : 'Add To Favorites'}
+      </button>
       <p>Rank: {rank}</p>    
       <p>${price_usd}</p>  
       <p>Price(BTC): {price_btc}</p>  
@@ -39,6 +58,7 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
       <p>Sub-Reddit Average Active Users: {formatNumber(reddit.avg_active_users)}</p>
       <p>Twitter Followers: {formatNumber(twitter.followers_count)}</p>
       <p>Twitter Statuses Count: {formatNumber(twitter.status_count)}</p>
+      <p>To compare the top 50 crypto exchanges that trade this crypto, click the button below!</p>
       <Link to='/exchanges'>
         <button onClick={() => loadTopExchanges(id)} className='selected-button'>Compare Exchanges</button>
       </Link>
@@ -47,11 +67,13 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
 };
 
 const mapStateToProps = (state) => ({
-  crypto: state.selected
+  crypto: state.selected,
+  favorites: state.favorites,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  loadExchanges: exchanges => dispatch( loadExchanges(exchanges) )
+  loadExchanges: exchanges => dispatch( loadExchanges(exchanges) ),
+  toggleFavorite: cryptos => dispatch ( toggleFavorite(cryptos) )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailedCrypto);

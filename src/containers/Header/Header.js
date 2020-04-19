@@ -3,7 +3,7 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = ({favorites}) => {
   return (
     <header>
       <div className='header-title'>
@@ -11,8 +11,12 @@ const Header = () => {
         <h1 className='header-title'>Crypto-Tracker</h1>
       </div>
       <nav>
-        <button>Top 100</button>
-        <button>Favorites</button>
+        <Link to='./cryptos'>
+          <button>Top 100</button>
+        </Link>
+        <Link to='./favorites'>
+          <button>Favorites({favorites.length})</button>
+        </Link>
         <Link to='./'>
           <button>Home</button>
         </Link>
@@ -21,4 +25,8 @@ const Header = () => {
   )
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  favorites: state.favorites
+})
+
+export default connect(mapStateToProps)(Header);
