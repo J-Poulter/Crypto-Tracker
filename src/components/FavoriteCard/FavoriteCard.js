@@ -7,6 +7,7 @@ import { selectCrypto } from '../../actions';
 
 const FavoriteCard = ({favorite, selectCrypto }) => {
   const { name, symbol, price_usd, percent_change_24h } = favorite
+  
   return (
     <div className='favorite-card'>
       <p>Crypto: {name} (<span>{symbol}</span>)</p>

@@ -3,6 +3,7 @@ import './ExchangeRow.css';
 
 const ExchangeRow = ({exchange = {}}) => {
   const { name, price_usd, volume, volume_usd } = exchange;
+  
   const formattedNum = () => {
     if (price_usd) {
       return price_usd.toFixed(5)

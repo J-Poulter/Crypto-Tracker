@@ -11,6 +11,7 @@ const Exchanges = ({exchanges, cryptoName, loadExchanges}) => {
       <ExchangeRow key={exchanges.indexOf(exchange)} exchange={exchange} />
     )
   })
+  
   const exchangeFilterOption = document.getElementById('exchange-filter-option')
 
   const handleSubmit = (event, option) => {
@@ -35,7 +36,6 @@ const Exchanges = ({exchanges, cryptoName, loadExchanges}) => {
       <div className='exchanges-heading'>
         <h1>TOP 50 EXCHANGES TRADING: {cryptoName}</h1>
         <form onSubmit={(event) => handleSubmit(event, exchangeFilterOption.value)}>
-
           <label htmlFor='exchanges-filter'>Sort By: </label>
           <select name='exchanges-filter' id='exchange-filter-option'>
             <option value='$:H-L'>Price: High to Low</option>

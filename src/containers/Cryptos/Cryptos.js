@@ -10,6 +10,7 @@ const Cryptos = ({cryptos, loadTopCryptos}) => {
       <CryptoRow key={crypto.id} crypto={crypto} />
     )
   })
+  
   const cryptoFilterOption = document.getElementById('crypto-filter-options')
 
   const handleSubmit = (event, option) => {

@@ -10,7 +10,7 @@ const WelcomeCard = ({marketInfo = {}, loadTopCryptos}) => {
   
   const loadTop100 = () => {
     getCryptos('')
-    .then(data => loadTopCryptos(data.data))
+      .then(data => loadTopCryptos(data.data))
   }
 
   return (

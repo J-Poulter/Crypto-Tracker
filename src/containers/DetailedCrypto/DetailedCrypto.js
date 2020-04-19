@@ -20,6 +20,10 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
       return 'Not Available'
     }
   }
+  
+  const isFavoriteCheck = (id) => {
+    return favorites.some(favorite => favorite.id === id)
+  }
 
   const handleFavoriteClick = (id) => {
     if (isFavoriteCheck(id)) {
@@ -33,10 +37,6 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
     }
   }
 
-  const isFavoriteCheck = (id) => {
-    return favorites.some(favorite => favorite.id === id)
-  }
-  
   return (
     <section className='selected-card'>
       <h2>{name}</h2>    
