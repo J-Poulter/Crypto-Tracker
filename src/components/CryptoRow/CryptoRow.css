@@ -1,6 +1,11 @@
 tr {
   border-bottom: 1px solid gray;
 }
+ 
+td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
