@@ -22,6 +22,10 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
   }
 
 
+
+  const isFavoriteCheck = (id) => {
+    return favorites.some(favorite => favorite.id === id)
+  }
   
   return (
     <section className='selected-card'>
