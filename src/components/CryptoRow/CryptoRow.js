@@ -2,15 +2,19 @@ import React from 'react';
 import './CryptoRow.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getCoinDetails } from '../../apiCalls';
-import { selectCrypto } from '../../actions';
+import { getCoinDetails, getSocialStats } from '../../apiCalls';
+import { selectCrypto, getSocials } from '../../actions';
 
-const CryptoRow = ({crypto, selectCrypto}) => {
+const CryptoRow = ({crypto, selectCrypto, getSocials}) => {
   const { id, rank, name, symbol, price_usd, percent_change_1h, percent_change_24h, percent_change_7d } = crypto
 
   const getDetailedCrypto = (id) => {
     getCoinDetails(id)
     .then(data => selectCrypto(data[0]))
+    .then(
+      getSocialStats(id)
+      .then(socialData => getSocials(socialData))
+    )
   }
 
   return (
@@ -32,7 +36,8 @@ const CryptoRow = ({crypto, selectCrypto}) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  selectCrypto: crypto => dispatch( selectCrypto(crypto) ) 
+  selectCrypto: crypto => dispatch( selectCrypto(crypto) ),
+  getSocials: socials => dispatch ( getSocials(socials) )
 })
 
 export default connect(null, mapDispatchToProps)(CryptoRow);
