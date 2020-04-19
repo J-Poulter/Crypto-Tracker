@@ -9,16 +9,16 @@ import FavoriteCardContainer from '../FavoriteCardContainer/FavoriteCardContaine
 import Header from '../Header/Header';
 import WelcomeCard from '../WelcomeCard/WelcomeCard';
 import { getMarketInfo } from '../../apiCalls';
-import { loadMarketInfo } from '../../actions';
+import { loadMarketInfo, toggleFavorite } from '../../actions';
 
 
 class App extends Component {
 
   componentDidMount = () => {
-
-    //ADD LOAD FAVORITES FUNCTION
+    const retrievedFavorites = JSON.parse(localStorage.getItem('favorites'))
+    this.props.toggleFavorite(retrievedFavorites)
     getMarketInfo()
-    .then(marketInfo => this.props.loadMarketInfo({marketInfo: marketInfo[0]}))
+      .then(marketInfo => this.props.loadMarketInfo({marketInfo: marketInfo[0]}))
   }
 
   render() {
@@ -48,7 +48,8 @@ class App extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loadMarketInfo: marketInfo => dispatch( loadMarketInfo(marketInfo) )
+  loadMarketInfo: marketInfo => dispatch( loadMarketInfo(marketInfo) ),
+  toggleFavorite: cryptos => dispatch ( toggleFavorite(cryptos) )
 })
 
 export default connect(null, mapDispatchToProps)(App);
