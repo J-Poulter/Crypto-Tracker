@@ -10,11 +10,11 @@ const CryptoRow = ({crypto, selectCrypto, getSocials}) => {
 
   const getDetailedCrypto = (id) => {
     getCoinDetails(id)
-    .then(data => selectCrypto(data[0]))
-    .then(
-      getSocialStats(id)
-      .then(socialData => getSocials(socialData))
-    )
+      .then(data => selectCrypto(data[0]))
+      .then(
+        getSocialStats(id)
+          .then(socialData => getSocials(socialData))
+      )
   }
 
   return (
