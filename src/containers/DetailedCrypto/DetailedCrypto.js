@@ -6,7 +6,7 @@ import { getExchanges } from '../../apiCalls';
 import { Link } from 'react-router-dom';
 
 const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
-  const { id, name, symbol, rank, price_usd, percent_change_1h, percent_change_24h, percent_change_7d, market_cap_usd, tsupply, msupply, reddit = {}, twitter = {} } = crypto
+  const { id, name, symbol, rank, price_usd, price_btc = 0, percent_change_1h, percent_change_24h, percent_change_7d, market_cap_usd, tsupply, msupply, reddit = {}, twitter = {} } = crypto
 
   const loadTopExchanges = (id) => {
     getExchanges(id)
@@ -26,10 +26,11 @@ const DetailedCrypto = ({crypto = {}, loadExchanges}) => {
       <h2>{name}</h2>    
       <p>{symbol}</p>    
       <p>Rank: {rank}</p>    
-      <p>${price_usd}</p>    
-      <p>Movement (1h): {percent_change_1h}%</p>
-      <p>Movement (24h): {percent_change_24h}%</p>
-      <p>Movement (7d): {percent_change_7d}%</p>
+      <p>${price_usd}</p>  
+      <p>Price(BTC): {price_btc}</p>  
+      <p>Movement (1H): {percent_change_1h}%</p>
+      <p>Movement (24H): {percent_change_24h}%</p>
+      <p>Movement (7D): {percent_change_7d}%</p>
       <p>Market Cap (thousands): ${formatNumber(market_cap_usd / 1000)}</p>
       <p>Current Supply: {formatNumber(tsupply)}</p>
       <p>Eventual Maximum Supply: {formatNumber(msupply)}</p>
