@@ -1,5 +1,6 @@
 tr {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px inset gray;
+  
 }
  
 td {
@@ -15,11 +16,6 @@ tr:hover {
   background-color: #f7E09E;
 }
 
-/* td {
-  border-left: 1px solid gray;
-  border-right: 1px solid gray;
-} */
-
 .red {
   color: red;
 }
@@ -30,4 +26,5 @@ tr:hover {
 
 .rank-data {
   color: black;
+  font-weight: bolder;
 }
