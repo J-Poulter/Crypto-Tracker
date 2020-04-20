@@ -58,6 +58,5 @@ button:focus {
   padding: 5px;
   background-color: inherit;
   color: black;
-  /* border: 1px solid black; */
   border: none;
 }
