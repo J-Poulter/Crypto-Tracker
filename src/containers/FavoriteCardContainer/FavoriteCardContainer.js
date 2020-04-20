@@ -12,7 +12,7 @@ const FavoriteCardContainer = ({favorites}) => {
 
   return (
     <>
-      <h1>Your Favorite Cryptos:</h1>
+      <h1 className='page-title'>Your Favorite Cryptos:</h1>
       <section className='favorites-container'>
         {allFavorites}
       </section>
