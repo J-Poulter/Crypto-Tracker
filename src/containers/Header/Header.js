@@ -14,7 +14,9 @@ const Header = ({favorites, loadTopCryptos}) => {
   return (
     <header>
       <div className='header-container'>
-        <img className='logo' src='https://image.flaticon.com/icons/svg/2506/2506151.svg' alt='Crypto Tracker logo'/>
+        <Link to='./'>
+          <img className='logo' src='https://image.flaticon.com/icons/svg/2506/2506151.svg' alt='Crypto Tracker logo'/>
+        </Link>
         <h1 className='header-title'>Crypto-Tracker</h1>
       </div>
       <nav>
