@@ -38,3 +38,26 @@
 .green2 {
   background-color: green;
 }
+
+h3 {
+  text-decoration: underline;
+}
+
+.detailed-column-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+.detailed-column {
+  width: 50%;
+}
+
+.left-column {
+  border-right: 2px solid black;
+}
+
+.access-exchanges {
+  font-style: italic;
+  margin-bottom: 0rem;
+}
