@@ -23,10 +23,10 @@ const WelcomeCard = ({marketInfo = {}, loadTopCryptos}) => {
         <p>Total Market Cap: ${(total_mcap / 1000000000).toFixed(2)} Billion</p>
         <p>Bitcoin Market Dominance: {btc_d}%</p>
         <p>Etherium Market Dominance: {eth_d}%</p>
-        <p>Accumulative Average Value Change (past 24h): {avg_change_percent}%</p>
-        <p>Trading Volume Change (past 24h): {volume_change}%</p>
+        <p>Accumulative Average Value Change (past 24h): {avg_change_percent > 0 ? '+' : ''}{avg_change_percent}%</p>
+        <p>Trading Volume Change (past 24h): {volume_change > 0 ? '+' : ''}{volume_change}%</p>
         <Link to='/cryptos'>
-          <button onClick={() => loadTop100()} className='welcome-button'>Binance Top 100:</button>
+          <button onClick={() => loadTop100()} className='welcome-button'>BINANCE TOP 100 CRYPTOS</button>
         </Link>
       </section>
     </>
