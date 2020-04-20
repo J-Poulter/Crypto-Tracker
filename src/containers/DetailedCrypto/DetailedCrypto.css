@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  background-color: coral;
+  background-color: #EDE5A6;
 }
 
 .selected-button {
@@ -11,4 +11,30 @@
   margin: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
+}
+
+.detailed-card-heading {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fav-button {
+  position: absolute;
+  right: 1%;
+  top: 20%;
+}
+
+.card-title {
+  text-decoration: underline;
+  font-size: 2rem;
+}
+
+.red2 {
+  background-color: red;
+}
+
+.green2 {
+  background-color: green;
 }
