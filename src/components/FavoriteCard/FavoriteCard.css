@@ -2,6 +2,7 @@
   background-color: #EDE5A6;
   border-radius: 0.4rem;
   box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.15);
+  border: 1px dashed gray;
   padding: 2rem;
   position: relative;
   font-size: 1.5rem;
