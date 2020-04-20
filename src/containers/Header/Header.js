@@ -2,23 +2,30 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { loadTopCryptos } from '../../actions';
+import { getCryptos } from '../../apiCalls';
 
-const Header = ({favorites}) => {
+const Header = ({favorites, loadTopCryptos}) => {
+  const loadTop100 = () => {
+    getCryptos('')
+      .then(data => loadTopCryptos(data.data))
+  }
+  
   return (
     <header>
-      <div className='header-title'>
+      <div className='header-container'>
         <img className='logo' src='https://image.flaticon.com/icons/svg/2506/2506151.svg' alt='Crypto Tracker logo'/>
         <h1 className='header-title'>Crypto-Tracker</h1>
       </div>
       <nav>
+        <Link to='./'>
+          <button>HOME</button>
+        </Link>
         <Link to='./cryptos'>
-          <button>Top 100</button>
+          <button onClick={() => loadTop100()}>TOP 100</button>
         </Link>
         <Link to='./favorites'>
-          <button>Favorites({favorites.length})</button>
-        </Link>
-        <Link to='./'>
-          <button>Home</button>
+          <button>FAVORITES({favorites.length})</button>
         </Link>
       </nav>
     </header>
@@ -29,4 +36,8 @@ const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => ({
+  loadTopCryptos: cryptos => dispatch(loadTopCryptos(cryptos))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
