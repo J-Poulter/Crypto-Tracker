@@ -23,9 +23,9 @@ const CryptoRow = ({crypto, selectCrypto, getSocials}) => {
       <td>{name}</td>
       <td>{symbol}</td>
       <td>${price_usd}</td>
-      <td>{percent_change_1h}%</td>
-      <td>{percent_change_24h}%</td>
-      <td>{percent_change_7d}%</td>
+      <td>{percent_change_1h > 0 ? '+' : ''}{percent_change_1h}%</td>
+      <td>{percent_change_24h > 0 ? '+' : ''}{percent_change_24h}%</td>
+      <td>{percent_change_7d > 0 ? '+' : ''}{percent_change_7d}%</td>
       <td>
         <Link to='/selected'>
           <button onClick={() => getDetailedCrypto(id)}>VIEW DETAILS</button>
