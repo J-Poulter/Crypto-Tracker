@@ -28,7 +28,7 @@ const CryptoRow = ({crypto, selectCrypto, getSocials}) => {
       <td>{percent_change_7d}%</td>
       <td>
         <Link to='/selected'>
-          <button onClick={() => getDetailedCrypto(id)}>Detailed View</button>
+          <button onClick={() => getDetailedCrypto(id)}>VIEW DETAILS</button>
         </Link>
       </td>
     </tr>
