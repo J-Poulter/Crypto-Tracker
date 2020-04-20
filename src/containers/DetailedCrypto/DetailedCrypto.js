@@ -38,31 +38,42 @@ const DetailedCrypto = ({crypto = {}, loadExchanges, toggleFavorite, favorites})
   }
 
   return (
-    <section className='selected-card'>
-      <h2>{name}</h2>    
-      <p>{symbol}</p>    
-      <button onClick={() => handleFavoriteClick(id)} type='button'>
-        {isFavoriteCheck(id) ? 'Remove From Favorites' : 'Add To Favorites'}
-      </button>
-      <p>Rank: {rank}</p>    
-      <p>${price_usd}</p>  
-      <p>Price(BTC): {price_btc}</p>  
-      <p>Movement (1H): {percent_change_1h}%</p>
-      <p>Movement (24H): {percent_change_24h}%</p>
-      <p>Movement (7D): {percent_change_7d}%</p>
-      <p>Market Cap (thousands): ${formatNumber(market_cap_usd / 1000)}</p>
-      <p>Current Supply: {formatNumber(tsupply)}</p>
-      <p>Eventual Maximum Supply: {formatNumber(msupply)}</p>
-      <h3>Social Stats:</h3>
-      <p>Sub-Reddit Subscribers: {formatNumber(reddit.subscribers)}</p>
-      <p>Sub-Reddit Average Active Users: {formatNumber(reddit.avg_active_users)}</p>
-      <p>Twitter Followers: {formatNumber(twitter.followers_count)}</p>
-      <p>Twitter Statuses Count: {formatNumber(twitter.status_count)}</p>
-      <p>To compare the top 50 crypto exchanges that trade this crypto, click the button below!</p>
-      <Link to='/exchanges'>
-        <button onClick={() => loadTopExchanges(id)} className='selected-button'>Compare Exchanges</button>
-      </Link>
-    </section>
+    <>
+      <h1 className='page-title'>Crypto Statistics</h1>
+      <section className='selected-card'>
+        <div className='detailed-card-heading'>
+          <h2 className='card-title'>{name} ({symbol})</h2>    
+          <button className={isFavoriteCheck(id) ? 'red2 fav-button' : 'green2 fav-button'} onClick={() => handleFavoriteClick(id)} type='button'>
+            {isFavoriteCheck(id) ? 'Remove From Favorites' : 'Add To Favorites'}
+          </button>
+        </div>
+        <div className='detailed-column-container'>
+          <div className='detailed-column left-column'>
+            <h3>Performance Stats:</h3>
+            <p>Rank: {rank}</p>    
+            <p>${price_usd}</p>  
+            <p>Price(BTC): {price_btc}</p>  
+            <p>Movement (1H): {percent_change_1h > 0 ? '+' : ''}{percent_change_1h}%</p>
+            <p>Movement (24H): {percent_change_24h > 0 ? '+' : ''}{percent_change_24h}%</p>
+            <p>Movement (7D): {percent_change_7d > 0 ? '+' : ''}{percent_change_7d}%</p>
+            <p>Market Cap (thousands): ${formatNumber(market_cap_usd / 1000)}</p>
+            <p>Current Supply: {formatNumber(tsupply)}</p>
+            <p>Eventual Maximum Supply: {formatNumber(msupply)}</p>
+          </div>
+          <div className='detailed-column'>
+            <h3>Social Stats:</h3>
+            <p>Sub-Reddit Subscribers: {formatNumber(reddit.subscribers)}</p>
+            <p>Sub-Reddit Average Active Users: {formatNumber(reddit.avg_active_users)}</p>
+            <p>Twitter Followers: {formatNumber(twitter.followers_count)}</p>
+            <p>Twitter Statuses Count: {formatNumber(twitter.status_count)}</p>
+          </div>
+        </div>
+            <p className='access-exchanges'>To compare the top 50 crypto exchanges that trade this crypto, click the button below!</p>
+        <Link to='/exchanges'>
+          <button onClick={() => loadTopExchanges(id)} className='selected-button'>Compare Exchanges</button>
+        </Link>
+      </section>
+    </>
   )
 };
 
@@ -73,7 +84,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   loadExchanges: exchanges => dispatch( loadExchanges(exchanges) ),
-  toggleFavorite: cryptos => dispatch ( toggleFavorite(cryptos) )
+  toggleFavorite: cryptos => dispatch( toggleFavorite(cryptos) )
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailedCrypto);

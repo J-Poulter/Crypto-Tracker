@@ -11,7 +11,7 @@ const Cryptos = ({cryptos, loadTopCryptos}) => {
     )
   })
   
-  const cryptoFilterOption = document.getElementById('crypto-filter-options')
+  const cryptoFilterOption = document.querySelector('.crypto-filter-options')
 
   const handleSubmit = (event, option) => {
     event.preventDefault()
@@ -41,11 +41,11 @@ const Cryptos = ({cryptos, loadTopCryptos}) => {
 
   return (
     <div className='cryptos-display'>
-      <div className='cryptos-heading'>
-        <h1 className='cryptos-title'>BINANCE TOP CRYPTOS</h1>
-        <form onSubmit={(event) => handleSubmit(event, cryptoFilterOption.value)}>
+      <div className='table-heading'>
+        <h1 className='page-title cryptos-title'>BINANCE TOP CRYPTOS</h1>
+        <form className='cryptos-form' onSubmit={(event) => handleSubmit(event, cryptoFilterOption.value)}>
           <label htmlFor='filter'>Sort By: </label>
-          <select name='filter' id='crypto-filter-options'>
+          <select name='filter' className='crypto-filter-options'>
             <option value='$:H-L'>Price: High to Low</option>
             <option value='$:L-H'>Price: Low to High</option>
             <option value='1H:H-L'>1h%: High to Low</option>
@@ -55,9 +55,10 @@ const Cryptos = ({cryptos, loadTopCryptos}) => {
             <option value='7D:H-L'>7d%: High to Low</option>
             <option value='7D:L-H'>7d%: Low to High</option>
           </select>
-          <button type='submit'>Go!</button>
+          <button className='submit-button' type='submit'>GO!</button>
         </form>
       </div>
+      <p className='update-instructions'>(to update prices/information, click top 100 button in the header)</p>
       <table>
         <thead>
           <tr>

@@ -2,9 +2,9 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: cadetblue;
+  background-color: #498467;
   width: 90%;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 nav {
@@ -13,15 +13,24 @@ nav {
 
 nav button {
   padding: 0.7rem 1.5rem;
-  margin: 20px;
+  margin: 10px;
   border-radius: 10px;
 }
 
-.header-title {
+.header-container {
   display: flex;
   flex-direction: row;
+  color: white;
+  padding-left: 2rem;
+}
+
+.header-title {
+  font-size: 3rem;
+  padding-left: 1rem;
+
 }
 
 .logo {
   width: 5rem;
+  padding-top: 1rem;
 }

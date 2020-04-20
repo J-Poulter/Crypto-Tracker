@@ -12,7 +12,7 @@ const Exchanges = ({exchanges, cryptoName, loadExchanges}) => {
     )
   })
   
-  const exchangeFilterOption = document.getElementById('exchange-filter-option')
+  const exchangeFilterOption = document.querySelector('.exchange-filter-option')
 
   const handleSubmit = (event, option) => {
     event.preventDefault()
@@ -33,17 +33,17 @@ const Exchanges = ({exchanges, cryptoName, loadExchanges}) => {
 
   return (
     <div className='exchanges-display'>
-      <div className='exchanges-heading'>
-        <h1>TOP 50 EXCHANGES TRADING: {cryptoName}</h1>
-        <form onSubmit={(event) => handleSubmit(event, exchangeFilterOption.value)}>
+        <h1 className='page-title exchanges-title'>Top 50 Exchanges Trading: <span>{cryptoName}</span></h1>
+      <div className='table-heading exchanges-heading'>
+        <form className='exchanges-form'onSubmit={(event) => handleSubmit(event, exchangeFilterOption.value)}>
           <label htmlFor='exchanges-filter'>Sort By: </label>
-          <select name='exchanges-filter' id='exchange-filter-option'>
+          <select name='exchanges-filter' className='exchange-filter-option'>
             <option value='$:H-L'>Price: High to Low</option>
             <option value='$:L-H'>Price: Low to High</option>
             <option value='V:H-L'>Volume: High to Low</option>
             <option value='V:L-H'>Volume: Low to High</option>
           </select>
-          <button type='submit'>Go!</button>
+          <button className='submit-button' type='submit'>GO!</button>
         </form>
       </div>      
       <table>

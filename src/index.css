@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  font-family: 'Russo One', sans-serif;
+}
+
+h1 {
+  color: white;
+}
+
+span {
+  font-weight: bolder;
+}
+
+form {
+  background-color: inherit;
+  border-radius: 5px;
+  padding-top: 2rem;
+  position: absolute;
+  right: 0%;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: #498467;
+  color: WHITE;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: transform 150ms ease-in;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: none;
+}
+
+.submit-button {
+  padding: 5px;
+  background-color: inherit;
+  color: black;
+  border: none;
+}
