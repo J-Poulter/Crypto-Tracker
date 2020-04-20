@@ -16,10 +16,10 @@ const FavoriteCard = ({favorite, selectCrypto, favorites, toggleFavorite }) => {
   
   return (
     <div className='favorite-card'>
-      <button className='remove-button' onClick={() => removeFromFavorites(id)}>REMOVE</button>
+      <button className='remove-button' onClick={() => removeFromFavorites(id)}>X</button>
       <p>{name} (<span>{symbol}</span>)</p>
       <p>Price: ${price_usd}</p>
-      <p>Price Movement (24H): {percent_change_24h}%</p>
+      <p>Price Movement (24H): {percent_change_24h > 0 ? '+' : ''}{percent_change_24h}%</p>
       <Link to='./selected'>
         <button onClick={() => selectCrypto(favorite)}>VIEW MORE</button>
       </Link>
