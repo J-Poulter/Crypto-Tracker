@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Crypto-Tracker
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
 
-### `npm start`
+This was a solo project assigned as a final project in Mod 3 during my time at Turing.  We were tasked with finding an API to work with, and using that data to build an application that puts the data to good use.  I decided on a crypto-currency API and with that, this application first presents the user with a welcome card that provides a general overview of all crypto markets combined.  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Homepage](https://user-images.githubusercontent.com/51523262/79828906-00fe0280-835f-11ea-9371-8ff836421eb6.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+From here, the user can click the button at the bottom and it will bring them to a display of the top 100 ranked cryptos on the Binance exchange.  Here the user can update the data, sort the table by many options, or view a more detailed description of a crypto.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Cryptos](https://user-images.githubusercontent.com/51523262/79828910-03605c80-835f-11ea-8d9d-520890e52681.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+After clicking on a cryptos view details button, the user is brought to a page which presents a m uch more detailed display of the statistics of that crypto.  The user can add this crypto to their favorites, which persists on page reload or new sessions.  Users can also compare the trade of this crypto across up to 50 exchanges.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![Detailed](https://user-images.githubusercontent.com/51523262/79829250-c47ed680-835f-11ea-8c44-3a2a24423760.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+From the exchanges table, the user can see where that crypto is least expensive to purchase or best price to sell.  They can also see the volume of trade involving that crypto and various exchanges.  This data can be sorted according to any of these options.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![Exchanges](https://user-images.githubusercontent.com/51523262/79828922-08251080-835f-11ea-9bee-48188a39f6d8.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Lastly, the user can view all of their favorited cryptos to get a quick glimpse into how they are performing.  They can remove any card from their favorites or view the extended details data of each crypto.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Favorites](https://user-images.githubusercontent.com/51523262/79828924-09563d80-835f-11ea-8cee-b0354fed0aa8.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- React Router
+- Redux
+- Jest
+- React-Redux Testing Libraries
+- Webpack
+- Asynchronous Javascript Functionality
 
-### Code Splitting
+## Set Up
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+To copy the project to your computer and run it: 
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Clone down the repo using `git clone`
+2. Navigate into the cloned directory
+3. Run `npm install`
+4. Run `npm start` to host a local server
+5. Your terminal should automatically navigate to [http://localhost:3000/](http://localhost:3000/), otherwise you can type it in your browser to view it.
+6. From here you can navigate through the application

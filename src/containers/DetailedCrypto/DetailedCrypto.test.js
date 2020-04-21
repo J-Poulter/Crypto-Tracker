@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -13,7 +13,7 @@ const testStore = createStore(rootReducer)
 
 describe('DetailedCrypto', () => {
   it('should render the correct content', () => {
-  const { getByText, debug } = render(
+  const { getByText } = render(
     <Provider store={testStore}>
       <BrowserRouter>
         <DetailedCrypto />
