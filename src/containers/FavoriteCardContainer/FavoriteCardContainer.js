@@ -6,7 +6,7 @@ import FavoriteCard from '../../components/FavoriteCard/FavoriteCard'
 const FavoriteCardContainer = ({favorites}) => {
   const allFavorites = favorites.map(favorite => {
     return(
-      <FavoriteCard favorite={favorite} />
+      <FavoriteCard key={favorite.id} favorite={favorite} />
     )
   })
 
