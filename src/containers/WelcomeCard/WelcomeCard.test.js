@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
 import WelcomeCard from './WelcomeCard';
-import { loadTopCryptos } from '../../actions';
+
 
 const testStore = createStore(rootReducer);
 
@@ -26,6 +26,7 @@ describe('WelcomeCard', () => {
   const totalMarkets = getByText('Total Active Exchange Markets: 0');
   const btcDominance = getByText('Bitcoin Market Dominance: %');
   const loadTopButton = getByText('BINANCE TOP 100 CRYPTOS');
+  
   expect(pageTitle).toBeInTheDocument();
   expect(subTitle).toBeInTheDocument();
   expect(totalCryptos).toBeInTheDocument();

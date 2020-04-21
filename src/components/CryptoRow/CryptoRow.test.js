@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import { BrowserRouter } from 'react-router-dom';
@@ -30,7 +30,7 @@ const mockCrypto = {
 
 describe('CryptoRow', () => {
   it('should render the correct content', () => {
-    const { debug, getByText, getAllByRole } = render(
+    const { getByText } = render(
       <Provider store={testStore}>
         <BrowserRouter>
           <table><tbody>
