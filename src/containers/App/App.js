@@ -15,8 +15,8 @@ import { loadMarketInfo, toggleFavorite } from '../../actions';
 class App extends Component {
 
   componentDidMount = () => {
-    const retrievedFavorites = JSON.parse(localStorage.getItem('favorites'))
-    this.props.toggleFavorite(retrievedFavorites)
+    // const retrievedFavorites = JSON.parse(localStorage.getItem('favorites'))
+    // this.props.toggleFavorite(retrievedFavorites)
     getMarketInfo()
       .then(marketInfo => this.props.loadMarketInfo({marketInfo: marketInfo[0]}))
   }
