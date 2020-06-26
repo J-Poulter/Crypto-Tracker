@@ -7,7 +7,7 @@ import App from './App';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
 import { BrowserRouter } from 'react-router-dom';
-
+let appa;
 jest.mock('../../apiCalls.js');
 
 const mockMarketInfo = [{
@@ -27,7 +27,7 @@ const mockMarketInfo = [{
 const mockFavorites = [
   {
     id: '58',
-    symbol: 'XRP',
+    symbol: 'XRP', 
     name: 'XRP',
     nameid: 'ripple',
     price_usd: '0.192433',

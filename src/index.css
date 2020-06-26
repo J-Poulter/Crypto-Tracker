@@ -32,27 +32,8 @@ form {
   right: 0%;
 }
 
-button {
-  border-radius: 5px;
-  border: 1px solid white;
-  background-color: #498467;
-  color: WHITE;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 10px;
-  letter-spacing: 1px;
-  transition: transform 150ms ease-in;
-}
 
-button:hover {
-  cursor: pointer;
-  transform: scale(0.95);
-  opacity: 0.8;
-}
-
-button:focus {
-  outline: none;
-}
+margi
 
 .submit-button {
   padding: 5px;

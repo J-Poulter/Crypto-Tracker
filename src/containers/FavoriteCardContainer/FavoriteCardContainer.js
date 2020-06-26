@@ -20,7 +20,7 @@ const FavoriteCardContainer = ({favorites}) => {
   )
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state) =>({ 
   favorites: state.favorites
 })
 
