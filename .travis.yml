@@ -1,5 +1,11 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: Vhn5adGzuermOIW3bvcrFnR+ZNK/k3ijqP8+RciTXlwJKHJbpT4ocmf6vtrvR5iVBQs7HOh8S+D7ORKigtLk0L1xKfmrTokL7Z59GligII2VCmoK0EDOwkoNWIqZNK7CFjZALg6FNU+xtXcQHF0wj0Srg5txZ2KkJtt6NYCE3RbZG0U/WxF0+r0T3CmMF664FZUprQOMgqT9rRJip2ldS2cCNFVkXs7iD0Un/MwKXV3Yj8sL6KO9xoT4QVRqoIY0vthL0LG6uIPL7SAoMhkxK58MdeWxm13ZQBsj5QDC6Vd+LpW92szbUjVEqOE8xvSDlw0b0jU3hRHu7Ecwo7EoXe27OYnWw7eL9lws9+QNzriaVOi1V0oGdB37oKrQdTec/aHB8niRqOAnLUYGfUSTy+uLtdGjUDhEqrLQqTwZwK0eyeRvff3HfJp4S+RSPeOKv4sp9/dCBpViC4ihJv0euvjEXD0as6r4PuNfWlvmeAgXr6uUItHTk2/j07cF8kTavLjVaQIXR/f8i4cOe1RnwtJ5UNvDVHX2j+3QF2JlXDQum8Q5FmthrE67HpsRMJuGSFI6J014yv8wgc8FJ23zrU9LqRzOhqX4mhQHKYy7hrp7BJYhrdEiOwcoxJm4aYiRYx2FsT5qUQbAIF+6vt10ik5C8Z7gWERDrWpmrW+kHD8=
+  app: jers-crypto-tracker
+  skip_cleanup: true
