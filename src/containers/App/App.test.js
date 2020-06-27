@@ -222,27 +222,27 @@ describe('App', () => {
     expect(exchangeVolume2).toBeInTheDocument()
   })
 
-  it('should render a card for each favorited crypto on the favorites page', () => {
-    const { getByText, getAllByText, debug } = renderTestWrapper();
+  // it('should render a card for each favorited crypto on the favorites page', () => {
+  //   const { getByText, getAllByText, debug } = renderTestWrapper();
 
-    const homeButton = getByText('HOME')
-    fireEvent.click(homeButton)
+  //   const homeButton = getByText('HOME')
+  //   fireEvent.click(homeButton)
 
-    const favoritesButton = getByText('FAVORITES(1)')
-    fireEvent.click(favoritesButton)
+  //   const favoritesButton = getByText('FAVORITES(1)')
+  //   fireEvent.click(favoritesButton)
 
-    const favoritesPageTitle = getByText('Your Favorite Cryptos:')
-    const favoriteCardName = getByText('XRP')
-    const favoriteCardPrice = getByText('Price: $0.192433')
-    const favoriteCardPriceMovement = getByText('Price Movement (24H): +0.17%')
-    const viewMoreButton = getByText('VIEW MORE')
-    const removeCardButton = getAllByText('X')
+  //   const favoritesPageTitle = getByText('Your Favorite Cryptos:')
+  //   const favoriteCardName = getByText('XRP')
+  //   const favoriteCardPrice = getByText('Price: $0.192433')
+  //   const favoriteCardPriceMovement = getByText('Price Movement (24H): +0.17%')
+  //   const viewMoreButton = getByText('VIEW MORE')
+  //   const removeCardButton = getAllByText('X')
 
-    expect(removeCardButton).toHaveLength(1)
-    expect(favoritesPageTitle).toBeInTheDocument()
-    expect(favoriteCardName).toBeInTheDocument()
-    expect(favoriteCardPrice).toBeInTheDocument()
-    expect(favoriteCardPriceMovement).toBeInTheDocument()
-    expect(viewMoreButton).toBeInTheDocument()
-  })
+  //   expect(removeCardButton).toHaveLength(1)
+  //   expect(favoritesPageTitle).toBeInTheDocument()
+  //   expect(favoriteCardName).toBeInTheDocument()
+  //   expect(favoriteCardPrice).toBeInTheDocument()
+  //   expect(favoriteCardPriceMovement).toBeInTheDocument()
+  //   expect(viewMoreButton).toBeInTheDocument()
+  // })
 })
